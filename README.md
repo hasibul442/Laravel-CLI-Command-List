@@ -5,11 +5,17 @@
 composer create-project laravel/laravel example-app
 ```
 ### Run the project
-    php artisan serve
+```bash
+php artisan serve
+```
 
 ### Copy the .env.example to .env
-    -- cp .env.example .env
-    -- copy .env.example .env
+```bash
+cp .env.example .env
+```
+```bash
+copy .env.example .env
+```
 
 ### Generate the key
     -- php artisan key:generate
