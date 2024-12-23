@@ -1,356 +1,1244 @@
 # Laravel-CLI-Command-List
 
 ### Create a new project
+
 ```bash
 composer create-project laravel/laravel example-app
 ```
+
 ### Run the project
+
 ```bash
 php artisan serve
 ```
 
 ### Copy the .env.example to .env
+
 ```bash
 cp .env.example .env
 ```
+
 ```bash
 copy .env.example .env
 ```
 
 ### Generate the key
-    -- php artisan key:generate
 
-### About Application
-    -- php artisan about (You can get a quick overview of your application's configuration, drivers, and environment via the about Artisan command)
-    -- php artisan about --only=environment (If you're only interested in a particular section of the application overview output, you may filter for that section using the --only)
-    -- php artisan config:show database (To explore a specific configuration file's values in detail, you may use the config:show Artisan command)
-
-### Encryption
-    -- php artisan env:encrypt (To encrypt an environment file, you may use the env:encrypt command)
-    -- php artisan env:encrypt --env=staging (You may encrypt a specific environment file using the --env flag)
-
-### Decryption
-    -- php artisan env:decrypt (To decrypt an environment file, you may use the env:decrypt command)
-    -- php artisan env:decrypt --env=staging (You may decrypt a specific environment file using the --env flag)
-    -- php artisan env:decrypt --force (In order to overwrite an existing environment file, you may provide the --force option to the env:decrypt command)
-
-### Caching
-    -- php artisan config:clear (This command may be used to purge the cached configuration)
-    -- php artisan config:cache (To cache your current configuration, you may use the config:cache Artisan command, The command should not be run during local development as configuration options will frequently need to be changed during the course of your application's development)
-    
-    -- php artisan event:cache (To cache your events and listeners, you may use the event:cache command)
-
-    -- php artisan route:cache (To cache your application's routes, you may use the route:cache Artisan command)
-    -- php artisan route:clear (To clear your route cache, you may use the route:clear command)
-
-    -- php artisan view:cache (To cache your Blade views, you may use the view:cache Artisan command)
-    -- php artisan view:clear (To clear the view cache, you may use the view:clear command)
-
-
-### Debug Mode
-    -- php artisan down (To enable maintenance mode, execute the down Artisan command)
-    -- php artisan down --refresh=15 (If you would like the Refresh HTTP header to be sent with all maintenance mode responses, you may provide the refresh option when invoking the down command. The Refresh header will instruct the browser to automatically refresh the page after the specified number of seconds)
-    -- php artisan down --retry=60 (You may also provide a retry option to the down command, which will be set as the Retry-After HTTP header's value, although browsers generally ignore this header)
-    -- php artisan down --secret="1630542a-246b-4b66-afa1-dd72a4c43515" (To allow maintenance mode to be bypassed using a secret token, you may use the secret option to specify a maintenance mode bypass token)
-    -- php artisan down --render="errors::503" (If you would like to display a custom view when your application is in maintenance mode, you may use the render option to specify the view that should be displayed)
-    -- php artisan down --redirect=/ (If you would like to redirect the user to a different URL when your application is in maintenance mode, you may use the redirect option to specify the URL to which the user should be redirected)
-    -- php artisan up (To bring the application out of maintenance mode, use the up command)
-
-### App Directory
-    -- php artisan list make (To view a list of all available commands, you may use the list command)
-    -- php artisan list make --format=json (You may also use the --format option to specify the output format for the command list)
-
-### Autoloader Optimization
-    -- composer install --optimize-autoloader --no-dev (To optimize Composer's autoloader, you may use the optimize-autoloader command)
-
-### Service Providers
-    -- php artisan make:provider RiakServiceProvider (To create a service provider, use the make:provider command)
-
-### Route List
-    -- php artisan route:list (To view a list of all registered routes for the application, you may use the route:list command)
-    -- php artisan route:list -v (To view more details about each route such as the route middleware, you may use the -v option)
-    -- php artisan route:list -vv (To view even more details about each route such as the route middleware, you may use the -vv option)
-    -- php artisan route:list --except-vendor (To view a list of all registered routes for the application except vendor routes, you may use the --except-vendor option)
-    -- php artisan route:list --only-vendor (To view a list of all registered routes for the application except vendor routes, you may use the --only-vendor option)
-
-### Middleware
-    -- php artisan make:middleware EnsureTokenIsValid (To create a new middleware, use the make:middleware command)
+```bash
+php artisan key:generate
+```
 
 ### Controller
-    -- php artisan make:controller PhotoController (To create a new controller, use the make:controller command)
-    -- php artisan make:controller ProvisionServer --invokable (To create a single action controller, use the --invokable flag)
-    -- php artisan make:controller PhotoController --resource (To create a resource controller, use the --resource flag)
-    -- php artisan make:controller PhotoController --model=Photo --resource (To create a resource controller with its own model, use the --model flag)
-    -- php artisan make:controller PhotoController --model=Photo --resource --requests (To create a resource controller with its own model and custom requests, use the --model and --requests flags)
-    -- php artisan make:controller PhotoController --api (To create an API controller, use the --api flag)
+**Create a New Controller**:
+```bash
+php artisan make:controller PhotoController
+```
 
-### View 
-    -- php artisan make:view greeting (To create a new view, use the make:view command)
+**Create a Single Action Controller**:
+```bash
+php artisan make:controller ProvisionServer --invokable
+```
+
+**Create a Resource Controller**:
+```bash
+php artisan make:controller PhotoController --resource
+```
+
+**Create a Resource Controller with its Own Model**:
+```bash
+php artisan make:controller PhotoController --model=Photo --resource
+```
+
+**Create a Resource Controller with its Own Model and Custom Requests**:
+```bash
+php artisan make:controller PhotoController --model=Photo --resource --requests
+```
+
+**Create an API Controller**:
+```bash
+php artisan make:controller PhotoController --api
+```
+
+### About Application
+
+You can get a quick overview of your application's configuration, drivers, and environment via the about Artisan command
+
+```bash
+php artisan about
+```
+
+If you're only interested in a particular section of the application overview output, you may filter for that section using the --only
+
+```bash
+php artisan about --only=environment
+```
+
+To explore a specific configuration file's values in detail, you may use the config:show Artisan command
+
+```bash
+php artisan config:show database
+```
+
+### Encryption
+
+To encrypt an environment file, you may use the env:encrypt command
+
+```bash
+php artisan env:encrypt
+```
+
+You may encrypt a specific environment file using the --env flag
+
+```bash
+php artisan env:encrypt --env=staging
+```
+
+### Decryption
+
+To decrypt an environment file, you may use the env:decrypt command
+
+```bash
+php artisan env:decrypt
+```
+
+You may decrypt a specific environment file using the --env flag
+
+```bash
+php artisan env:decrypt --env=staging
+```
+
+In order to overwrite an existing environment file, you may provide the --force option to the env:decrypt command
+
+```bash
+php artisan env:decrypt --force
+```
+
+### Caching
+
+This command may be used to purge the cached configuration
+
+```bash
+php artisan config:clear
+```
+
+To cache your current configuration, you may use the config:cache Artisan command, The command should not be run during local development as configuration options will frequently need to be changed during the course of your application's development
+
+```bash
+php artisan config:cache
+```
+
+To cache your events and listeners, you may use the event:cache command
+
+```bash
+php artisan event:cache
+```
+
+To cache your application's routes, you may use the route:cache Artisan command
+
+```bash
+php artisan route:cache
+```
+
+To clear your route cache, you may use the route:clear command
+
+```bash
+php artisan route:clear
+```
+
+**To cache your Blade views, you may use the view:cache Artisan command**
+
+```bash
+php artisan view:cache
+```
+
+**To clear the view cache, you may use the view:clear command**
+
+```bash
+php artisan view:clear
+```
+
+### Debug Mode
+
+**Enable Maintenance Mode**:
+
+   ```bash
+   php artisan down
+   ```
+
+**Enable Maintenance Mode with Auto Refresh (15 seconds)**:
+
+   ```bash
+   php artisan down --refresh=15
+   ```
+
+**Enable Maintenance Mode with Retry-After Header (60 seconds)**:
+
+   ```bash
+   php artisan down --retry=60
+   ```
+
+**Enable Maintenance Mode with Secret Token to Bypass**:
+
+   ```bash
+   php artisan down --secret="1630542a-246b-4b66-afa1-dd72a4c43515"
+   ```
+
+**Enable Maintenance Mode with Custom View**:
+   ```bash
+   php artisan down --render="errors::503"
+   ```
+
+**Enable Maintenance Mode with Redirect to a Different URL**:
+
+```bash
+php artisan down --redirect=/
+```
+
+**Bring the Application Out of Maintenance Mode**:
+
+```bash
+php artisan up
+```
+
+### App Directory
+
+**View a List of All Available Commands**:
+
+```bash
+php artisan list make
+```
+
+**View a List of All Available Commands with JSON Output Format**:
+
+```bash
+php artisan list make --format=json
+```
+
+
+### Autoloader Optimization
+**To optimize Composer's autoloader, you may use the optimize-autoloader command**
+```bash
+composer install --optimize-autoloader --no-dev 
+```
+
+### Service Providers
+**To create a service provider, use the make:provider command**
+```bash
+php artisan make:provider RiakServiceProvider 
+```
+
+### Route List
+**View a List of All Registered Routes for the Application**:
+```bash
+php artisan route:list
+```
+
+**View More Details About Each Route (Including Route Middleware)**:
+```bash
+php artisan route:list -v
+```
+
+**View Even More Details About Each Route (Including Route Middleware)**:
+```bash
+php artisan route:list -vv
+```
+
+**View a List of All Registered Routes for the Application Except Vendor Routes**:
+```bash
+php artisan route:list --except-vendor
+```
+
+**View a List of All Registered Vendor Routes**:
+```bash
+php artisan route:list --only-vendor
+```
+
+### Middleware
+**Create a New Middleware**:
+```bash
+php artisan make:middleware EnsureTokenIsValid
+```
+
+### View
+**Create a New View**:
+
+```bash
+php artisan make:view greeting
+```
 
 ### Component
-    -- php artisan make:component Alert (To create a new component, use the make:component command)
-    -- php artisan make:component Forms/Input (To create a new component within a subdirectory, use the make:component command)
-    -- php artisan make:component forms.input --view (To create a new component with a custom view, use the --view flag)
-    -- php artisan make:component Alert --inline (To create a new component with an inline view, use the --inline flag)
+**Create a New Component**:
+```bash
+php artisan make:component Alert
+```
 
-### NPM
-    -- npm install (To install all of the project's dependencies, you may use the install command)
-    -- npm run dev (To compile your assets, use the dev command)
-    -- npm run build (To compile your assets for production, use the build command)
+**Create a New Component within a Subdirectory**:
+```bash
+php artisan make:component Forms/Input
+```
 
-### Session 
-    -- php artisan session:table (To generate a migration that creates the sessions table, use the session:table command)
+**Create a New Component with a Custom View**:
+```bash
+php artisan make:component forms.input --view
+```
+
+**Create a New Component with an Inline View**:
+```bash
+php artisan make:component Alert --inline
+```
+
+### Session
+**Generate a Migration that Creates the Sessions Table**:
+```bash
+php artisan session:table
+```
 
 ### Form Request Validation
-    -- php artisan make:request StorePostRequest (To create a new form request class, use the make:request command)
-    -- php artisan make:rule Uppercase (To create a new validation rule, use the make:rule command)
-    -- php artisan make:rule Uppercase --implicit (To create a new implicit validation rule, use the --implicit flag)
+**Create a New Form Request Class**:
+```bash
+php artisan make:request StorePostRequest
+```
+
+**Create a New Validation Rule**:
+```bash
+php artisan make:rule Uppercase
+```
+
+**Create a New Implicit Validation Rule**:
+```bash
+php artisan make:rule Uppercase --implicit
+```
 
 ### Error Handling
-    -- php artisan vendor:publish --tag=laravel-errors (To publish the error views used by the default exception handler, use the vendor:publish Artisan command)
+**Publish the Error Views Used by the Default Exception Handler**:
+```bash
+php artisan vendor:publish --tag=laravel-errors
+```
 
 ### Logging
-    Laravel Pail is a package that allows you to easily dive into your Laravel application's log files directly from the command line. Unlike the standard tail command, Pail is designed to work with any log driver, including Sentry or Flare. In addition, Pail provides a set of useful filters to help you quickly find what you're looking for.
-    -- composer require laravel/pail (To get started, install the laravel/pail Composer package)
-    -- php artisan pail (To start tailing logs, run the pail command)
-    -- php artisan pail -v (To increase the verbosity of the output and avoid truncation (…), use the -v option)
-    -- php artisan pail -vv (For maximum verbosity and to display exception stack traces, use the -vv option)
-    -- php artisan pail --filter="production" (To filter the logs by a given string, use the --filter option)
-    -- php artisan pail --message="User created" (To filter the logs by a given string, use the --message option)
-    -- php artisan pail --level=error (To filter the logs by a given level, use the --level option)
-    -- php artisan pail --user=1 (To filter the logs by a given user ID, use the --user option)
+*Laravel Pail is a package that allows you to easily dive into your Laravel application's log files directly from the command line. Unlike the standard tail command, Pail is designed to work with any log driver, including Sentry or Flare. In addition, Pail provides a set of useful filters to help you quickly find what you're looking for.*
+
+**Install the `laravel/pail` Composer Package**:
+```bash
+composer require laravel/pail
+```
+
+**Start Tailing Logs**:
+```bash
+php artisan pail
+```
+
+**Increase the Verbosity of the Output (Avoid Truncation)**:
+```bash
+php artisan pail -v
+```
+
+**Maximum Verbosity (Display Exception Stack Traces)**:
+```bash
+php artisan pail -vv
+```
+
+**Filter Logs by a Given String**:
+```bash
+php artisan pail --filter="production"
+```
+
+**Filter Logs by a Given Message**:
+```bash
+php artisan pail --message="User created"
+```
+
+**Filter Logs by a Given Level**:
+```bash
+php artisan pail --level=error
+```
+
+**Filter Logs by a Given User ID**:
+```bash
+php artisan pail --user=1
+```
 
 ### Artisan Console
-    -- php artisan list (To view a list of all available Artisan commands, you may use the list command)
-    -- php artisan help migrate (To view more information about a given command, such as its description, arguments, options, and aliases, use the help command)
+**View a List of All Available Artisan Commands**:
+```bash
+php artisan list
+```
 
-    ## Tinker (REPL)
-    Laravel Tinker is a powerful REPL for the Laravel framework, powered by the PsySH package
-    -- composer require laravel/tinker (To get started, install the laravel/tinker Composer package)
-    -- php artisan tinker (To enter the Tinker REPL, run the tinker Artisan command)
-    -- php artisan vendor:publish --provider="Laravel\Tinker\TinkerServiceProvider" (To publish Tinker's configuration file, use the vendor:publish Artisan command)
+**View More Information About a Given Command**:
+```bash
+php artisan help migrate
+```
 
-    ## Writing Commands
-    In addition to the commands provided with Artisan, you may build your own custom commands.
-    -- php artisan make:command SendEmails (To create a new command, use the make:command Artisan command)
-    -- php artisan mail:send 1 --isolated (To run a command in isolation, use the --isolated flag)
-    -- php artisan mail:send 1 --isolated=12 (To run a command in isolation for a given number of seconds, use the --isolated flag with a value in seconds)
-    -- php artisan mail:send 1 --queue (To queue a command, use the --queue flag)
-    -- php artisan mail:send 1 --queue=default (To queue a command on a specific queue, use the --queue flag with a value)
-    -- php artisan mail:send 1 -Qdefault (To queue a command on a specific queue, use the -Q flag with a value)
-    -- php artisan mail:send 1 2 (To run a command on multiple connections or queues, use multiple arguments)
-    -- php artisan mail:send --id=1 --id=2 (To run a command on multiple connections or queues, use multiple arguments)
+### Tinker (REPL)
+*Laravel Tinker is a powerful REPL for the Laravel framework, powered by the PsySH package*
 
-    ## Stub Customization
-    -- php artisan stub:publish (To publish all of the package's stubs, use the stub:publish command)
+**Install the `laravel/tinker` Composer Package**:
+```bash
+composer require laravel/tinker
+```
+
+**Enter the Tinker REPL**:
+```bash
+php artisan tinker
+```
+
+**Publish Tinker's Configuration File**:
+```bash
+php artisan vendor:publish --provider="Laravel\Tinker\TinkerServiceProvider"
+```
+
+
+### Writing Commands
+*In addition to the commands provided with Artisan, you may build your own custom commands.*
+
+**Create a New Command**:
+```bash
+php artisan make:command SendEmails
+```
+
+**Run a Command in Isolation**:
+```bash
+php artisan mail:send 1 --isolated
+```
+
+**Run a Command in Isolation for a Given Number of Seconds**:
+```bash
+php artisan mail:send 1 --isolated=12
+```
+
+**Queue a Command**:
+```bash
+php artisan mail:send 1 --queue
+```
+
+**Queue a Command on a Specific Queue**:
+```bash
+php artisan mail:send 1 --queue=default
+```
+
+**Queue a Command on a Specific Queue (Using `-Q` Flag)**:
+```bash
+php artisan mail:send 1 -Qdefault
+```
+
+**Run a Command on Multiple Connections or Queues (Multiple Arguments)**:
+```bash
+php artisan mail:send 1 2
+```
+
+**Run a Command on Multiple Connections or Queues (Using Multiple `--id` Flags)**:
+```bash
+php artisan mail:send --id=1 --id=2
+```
+
+### Stub Customization
+**Publish All of the Package's Stubs**:
+```bash
+php artisan stub:publish
+```
 
 ### Broadcasting
-    -- composer require pusher/pusher-php-server (To get started, install the pusher/pusher-php-server Composer package)
-    -- composer require ably/ably-php  (To get started, install the ably/ably-php Composer package)
-    -- npm install --save-dev laravel-echo pusher-js (To get started, install the laravel-echo and pusher-js packages)
+**Install the `pusher/pusher-php-server` Composer Package**:
+```bash
+composer require pusher/pusher-php-server
+```
+
+**Install the `ably/ably-php` Composer Package**:
+```bash
+composer require ably/ably-php
+```
+
+**Install the `laravel-echo` and `pusher-js` Packages**:
+```bash
+npm install --save-dev laravel-echo pusher-js
+```
 
 ### Channels
-    -- php artisan channel:list (To view a list of all of the registered channels, you may use the channel:list command)
-    -- php artisan make:channel OrderChannel (To create a new channel, use the make:channel command)
+**View a List of All Registered Channels**:
+```bash
+php artisan channel:list
+```
+
+**Create a New Channel**:
+```bash
+php artisan make:channel OrderChannel
+```
 
 ### Events & Listeners
-    -- php artisan event:generate (To generate all of the events and listeners for your application, you may use the event:generate command)
-    -- php artisan make:event PodcastProcessed (To create a new event class, use the make:event command)
-    -- php artisan make:listener SendPodcastNotification --event=PodcastProcessed (To create a new event listener, use the make:listener command)
+**Generate All Events and Listeners for Your Application**:
+```bash
+php artisan event:generate
+```
+
+**Create a New Event Class**:
+```bash
+php artisan make:event PodcastProcessed
+```
+
+**Create a New Event Listener**:
+```bash
+php artisan make:listener SendPodcastNotification --event=PodcastProcessed
+```
 
 ### Storage
-    -- php artisan storage:link (To create the symbolic link, you may use the storage:link Artisan command)
-    -- composer require league/flysystem-aws-s3-v3 "^3.0" --with-all-dependencies (To get started, install the league/flysystem-aws-s3-v3 Composer package)
-    -- composer require league/flysystem-ftp "^3.0" (To get started, install the league/flysystem-ftp Composer package)
-    -- composer require league/flysystem-sftp-v3 "^3.0" (To get started, install the league/flysystem-sftp-v3 Composer package)
-    -- composer require league/flysystem-path-prefixing "^3.0" (To get started, install the league/flysystem-path-prefixing Composer package)
-    -- composer require league/flysystem-read-only "^3.0" (To get started, install the league/flysystem-read-only Composer package)
-    -- composer require spatie/flysystem-dropbox (To get started, install the spatie/flysystem-dropbox Composer package)
+**Create the Symbolic Link for Storage**:
+```bash
+php artisan storage:link
+```
+
+**Install the `league/flysystem-aws-s3-v3` Composer Package**:
+```bash
+composer require league/flysystem-aws-s3-v3 "^3.0" --with-all-dependencies
+```
+
+**Install the `league/flysystem-ftp` Composer Package**:
+```bash
+composer require league/flysystem-ftp "^3.0"
+```
+
+**Install the `league/flysystem-sftp-v3` Composer Package**:
+```bash
+composer require league/flysystem-sftp-v3 "^3.0"
+```
+
+**Install the `league/flysystem-path-prefixing` Composer Package**:
+```bash
+composer require league/flysystem-path-prefixing "^3.0"
+```
+
+**Install the `league/flysystem-read-only` Composer Package**:
+```bash
+composer require league/flysystem-read-only "^3.0"
+```
+
+**Install the `spatie/flysystem-dropbox` Composer Package**:
+```bash
+composer require spatie/flysystem-dropbox
+```
 
 ### HTTP Client
-    -- composer require guzzlehttp/guzzle (To get started, install the guzzlehttp/guzzle Composer package)
+**Install the `guzzlehttp/guzzle` Composer Package**:
+```bash
+composer require guzzlehttp/guzzle
+```
 
 ### Localization
-    -- php artisan lang:publish (To publish all of the package's language files, use the lang:publish command)
+**Publish All of the Package's Language Files**:
+```bash
+php artisan lang:publish
+```
 
 ### Mail
-    -- composer require symfony/mailgun-mailer symfony/http-client (To get started, install the symfony/mailgun-mailer and symfony/http-client Composer packages)
-    -- composer require symfony/postmark-mailer symfony/http-client (To get started, install the symfony/postmark-mailer and symfony/http-client Composer packages)
-    -- composer require aws/aws-sdk-php (To get started, install the aws/aws-sdk-php Composer package)
-    -- composer require mailersend/laravel-driver (To get started, install the mailersend/laravel-driver Composer package)
-    -- php artisan make:mail OrderShipped (To create a new mailable class, use the make:mail Artisan command)
-    -- php artisan make:mail OrderShipped --markdown=emails.orders.shipped (To create a new mailable class with a Markdown template, use the --markdown option)
-    -- php artisan vendor:publish --tag=laravel-mail (To publish the mail configuration file, use the vendor:publish Artisan command)
-    -- composer require symfony/brevo-mailer symfony/http-client (To get started, install the symfony/brevo-mailer and symfony/http-client Composer packages)
+**Install the `symfony/mailgun-mailer` and `symfony/http-client` Composer Packages**:
+```bash
+composer require symfony/mailgun-mailer symfony/http-client
+```
+
+**Install the `symfony/postmark-mailer` and `symfony/http-client` Composer Packages**:
+```bash
+composer require symfony/postmark-mailer symfony/http-client
+```
+
+**Install the `aws/aws-sdk-php` Composer Package**:
+```bash
+composer require aws/aws-sdk-php
+```
+
+**Install the `mailersend/laravel-driver` Composer Package**:
+```bash
+composer require mailersend/laravel-driver
+```
+
+**Create a New Mailable Class**:
+```bash
+php artisan make:mail OrderShipped
+```
+
+**Create a New Mailable Class with a Markdown Template**:
+```bash
+php artisan make:mail OrderShipped --markdown=emails.orders.shipped
+```
+
+**Publish the Mail Configuration File**:
+```bash
+php artisan vendor:publish --tag=laravel-mail
+```
+
+**Install the `symfony/brevo-mailer` and `symfony/http-client` Composer Packages**:
+```bash
+composer require symfony/brevo-mailer symfony/http-client
+```
 
 ### Notifications
-    -- php artisan make:notification InvoicePaid (To create a new notification class, use the make:notification Artisan command)
-    -- php artisan vendor:publish --tag=laravel-notifications (To publish the notification configuration file, use the vendor:publish Artisan command)
-    -- php artisan make:notification InvoicePaid --markdown=mail.invoice.paid (To create a new notification class with a Markdown template, use the --markdown option)
-    -- php artisan vendor:publish --tag=laravel-mail (To publish the mail configuration file, use the vendor:publish Artisan command)
-    -- php artisan notifications:table (To generate a migration that creates the notifications table, use the notifications:table command)
-    -- composer require laravel/slack-notification-channel (To get started, install the laravel/slack-notification-channel Composer package)
+**Create a New Notification Class**:
+```bash
+php artisan make:notification InvoicePaid
+```
+
+**Publish the Notification Configuration File**:
+```bash
+php artisan vendor:publish --tag=laravel-notifications
+```
+
+**Create a New Notification Class with a Markdown Template**:
+```bash
+php artisan make:notification InvoicePaid --markdown=mail.invoice.paid
+```
+
+**Publish the Mail Configuration File**:
+```bash
+php artisan vendor:publish --tag=laravel-mail
+```
+
+**Generate a Migration to Create the Notifications Table**:
+```bash
+php artisan notifications:table
+```
+
+**Install the `laravel/slack-notification-channel` Composer Package**:
+```bash
+composer require laravel/slack-notification-channel
+```
 
 ### Queues
-    -- php artisan queue:work --queue=high,default (To start the worker, you may use the queue:work command)
-    -- php artisan queue:table (To generate a migration that creates the jobs table, use the queue:table command)
-    -- php artisan make:job ProcessPodcast (To create a new job class, use the make:job Artisan command)
-    -- php artisan queue:work --tries=3 (To specify the maximum number of times a job should be attempted, you may use the --tries switch on the queue:work command)
-    -- php artisan queue:work --timeout=30 (To specify the maximum number of seconds a child process can run, you may use the --timeout switch on the queue:work command)
-    -- php artisan queue:batches-table (To generate a migration that creates the batches table, use the queue:batches-table command)
-    -- php artisan queue:work (To start the worker, you may use the queue:work command)
-    -- php artisan queue:work -v (To increase the verbosity of the worker's output, you may use the -v option)
-    -- php artisan queue:listen (To start the worker in "listen" mode, you may use the queue:listen command)
-    -- php artisan queue:work redis (To start the worker for a specific connection, you may use the queue:work command with the connection name as the first argument)
-    -- php artisan queue:work redis --queue=emails (To start the worker for a specific queue, you may use the queue:work command with the queue name as the first argument)
-    -- php artisan queue:work --once (To process only the next job on the queue, you may use the --once switch on the queue:work command)
-    -- php artisan queue:work --max-jobs=1000 (To process only the next job on the queue, you may use the --once switch on the queue:work command)
-    -- php artisan queue:work --stop-when-empty (To stop the worker when the queue is empty, you may use the --stop-when-empty switch on the queue:work command)
-    -- php artisan queue:work --max-time=3600 (To stop the worker after a specified amount of time, you may use the --max-time switch on the queue:work command)
-    -- php artisan queue:work --sleep=3 (To specify the number of seconds to wait before polling for new jobs, you may use the --sleep switch on the queue:work command)
-    -- php artisan queue:work --queue=high,low (To specify the queues the worker should listen on, you may use the --queue switch on the queue:work command)
-    -- php artisan queue:restart (To restart all of the queue workers, you may use the queue:restart command)
-    -- php artisan queue:work --timeout=60 (To specify the maximum number of seconds a child process can run, you may use the --timeout switch on the queue:work command)
-    -- php artisan queue:failed-table (To generate a migration that creates the failed_jobs table, use the queue:failed-table command)
-    -- php artisan queue:work redis --tries=3 (To specify the maximum number of times a job should be attempted, you may use the --tries switch on the queue:work command)
-    -- php artisan queue:work redis --tries=3 --backoff=3 (To specify the number of seconds to wait before retrying a job, you may use the --backoff switch on the queue:work command)
-    -- php artisan queue:failed (To view all of your failed jobs, you may use the queue:failed command)
-    -- php artisan queue:retry --queue=name (To retry all of the failed jobs for a given queue, you may use the queue:retry command)
-    -- php artisan queue:retry all (To retry all of the failed jobs, you may use the queue:retry command)
-    -- php artisan queue:retry 5 (To retry a specific failed job, you may use the queue:retry command)
-    -- php artisan queue:forget 5 (To delete a specific failed job, you may use the queue:forget command)
-    -- php artisan queue:flush (To delete all of the failed jobs, you may use the queue:flush command)
-    -- php artisan queue:prune-failed (To delete all of the failed jobs that are older than a given number of days, you may use the queue:prune-failed command)
-    -- php artisan queue:prune-failed --hours=48 (To delete all of the failed jobs that are older than a given number of hours, you may use the queue:prune-failed command)
-    -- php artisan queue:work --daemon (To run the worker in daemon mode, you may use the --daemon switch on the queue:work command)
+**To start the worker, you may use the queue:work command**:
+```bash
+php artisan queue:work --queue=high,default
+```
 
-## Storing Failed Jobs In DynamoDB
-    -- composer require aws/aws-sdk-php (To get started, install the aws/aws-sdk-php Composer package)
+**To generate a migration that creates the jobs table, use the queue:table command**:
+```bash
+php artisan queue:table
+```
 
-## Clearing Jobs From Queues
-    -- php artisan queue:clear (To delete all of the jobs from a given queue, you may use the queue:clear command)
-    -- php artisan queue:clear --queue=emails (To delete all of the jobs from a given queue, you may use the queue:clear command)
-    -- php artisan queue:clear redis --queue=emails (To delete all of the jobs from a given queue, you may use the queue:clear command)
+**To create a new job class, use the make:job Artisan command**:
+```bash
+php artisan make:job ProcessPodcast
+```
 
-## Monitoring Your Queues 
-    -- php artisan queue:monitor redis:default,redis:deployments --max=100
+**To specify the maximum number of times a job should be attempted, you may use the --tries switch on the queue:work command**:
+```bash
+php artisan queue:work --tries=3
+```
+
+**To specify the maximum number of seconds a child process can run, you may use the --timeout switch on the queue:work command**:
+```bash
+php artisan queue:work --timeout=30
+```
+
+**To generate a migration that creates the batches table, use the queue:batches-table command**:
+```bash
+php artisan queue:batches-table
+```
+
+**To start the worker, you may use the queue:work command**:
+```bash
+php artisan queue:work
+```
+
+**To increase the verbosity of the worker's output, you may use the -v option**:
+```bash
+php artisan queue:work -v
+```
+
+**Start the Worker in "Listen" Mode**:
+```bash
+php artisan queue:listen
+```
+
+**Start the Worker for a Specific Connection (e.g., Redis)**:
+```bash
+php artisan queue:work redis
+```
+
+**Start the Worker for a Specific Queue (e.g., emails)**:
+```bash
+php artisan queue:work redis --queue=emails
+```
+
+**Process Only the Next Job on the Queue**:
+```bash
+php artisan queue:work --once
+```
+
+**Process a Specific Number of Jobs**:
+```bash
+php artisan queue:work --max-jobs=1000
+```
+
+**Stop the Worker When the Queue is Empty**:
+```bash
+php artisan queue:work --stop-when-empty
+```
+
+**Stop the Worker After a Specified Time**:
+```bash
+php artisan queue:work --max-time=3600
+```
+
+**Specify the Number of Seconds to Wait Before Polling for New Jobs**:
+```bash
+php artisan queue:work --sleep=3
+```
+
+**Specify Multiple Queues for the Worker to Listen On**:
+```bash
+php artisan queue:work --queue=high,low
+```
+
+**Restart All Queue Workers**:
+```bash
+php artisan queue:restart
+```
+
+**Generate a Migration to Create the Failed Jobs Table**:
+```bash
+php artisan queue:failed-table
+```
+
+**Specify the Maximum Number of Attempts for a Job on Redis**:
+```bash
+php artisan queue:work redis --tries=3
+```
+
+**Specify the Backoff Time for Retries on Redis**:
+```bash
+php artisan queue:work redis --tries=3 --backoff=3
+```
+
+**View All Failed Jobs**:
+```bash
+php artisan queue:failed
+```
+
+**Retry All Failed Jobs for a Specific Queue**:
+```bash
+php artisan queue:retry --queue=name
+```
+
+**Retry All Failed Jobs**:
+```bash
+php artisan queue:retry all
+```
+
+**Retry a Specific Failed Job**:
+```bash
+php artisan queue:retry 5
+```
+
+**Delete a Specific Failed Job**:
+```bash
+php artisan queue:forget 5
+```
+
+**Delete All Failed Jobs**:
+```bash
+php artisan queue:flush
+```
+
+**Prune Failed Jobs Older Than a Given Number of Days**:
+```bash
+php artisan queue:prune-failed
+```
+
+**Prune Failed Jobs Older Than a Given Number of Hours**:
+```bash
+php artisan queue:prune-failed --hours=48
+```
+
+**Run the Worker in Daemon Mode**:
+```bash
+php artisan queue:work --daemon
+```
+
+### Storing Failed Jobs In DynamoDB
+**Install the `aws/aws-sdk-php` Composer Package**:
+```bash
+composer require aws/aws-sdk-php
+```
+
+### Clearing Jobs From Queues
+**Delete All Jobs from a Given Queue**:
+```bash
+php artisan queue:clear
+```
+
+**Delete All Jobs from a Specific Queue (e.g., emails)**:
+```bash
+php artisan queue:clear --queue=emails
+```
+
+**Delete All Jobs from a Specific Queue (e.g., emails) on a Specific Connection (e.g., Redis)**:
+```bash
+php artisan queue:clear redis --queue=emails
+```
+
+### Monitoring Your Queues
+```bash
+php artisan queue:monitor redis:default,redis:deployments --max=100
+```
 
 ### Task Scheduling
-    -- php artisan schedule:list (To view all of your scheduled tasks, you may use the schedule:list command)
-    -- php artisan schedule:interrupt (To interrupt a scheduled task, you may use the schedule:interrupt command)
-    -- php artisan schedule:run (To run your scheduled tasks, you may use the schedule:run command)
-    -- php artisan schedule:work (To run the scheduler in the background, you may use the schedule:work command)
+**View All Scheduled Tasks**:
+```bash
+php artisan schedule:list
+```
+
+**Interrupt a Scheduled Task**:
+```bash
+php artisan schedule:interrupt
+```
+
+**Run Your Scheduled Tasks**:
+```bash
+php artisan schedule:run
+```
+
+**Run the Scheduler in the Background**:
+```bash
+php artisan schedule:work
+```
 
 ### Policies
-    -- php artisan make:policy PostPolicy (To create a new policy, use the make:policy Artisan command)
-    -- php artisan make:policy PostPolicy --model=Post (To create a new policy for a model, use the --model option)
+**Create a New Policy**:
+```bash
+php artisan make:policy PostPolicy
+```
+
+**Create a New Policy for a Model (e.g., Post)**:
+```bash
+php artisan make:policy PostPolicy --model=Post
+```
 
 ### Database
-    -- php artisan migrate (To run all of your outstanding migrations, execute the migrate Artisan command)
-    -- php artisan db (To view a list of all available Artisan commands, you may use the list command)
-    -- php artisan db mysql (To view a list of all available Artisan commands, you may use the list command)
-    -- php artisan db:show (To view a list of all of the database connections configured for your application, you may use the db:show command)
-    -- php artisan db:show --database=pgsql (You may specify which database connection should be inspected by providing the database connection name to the command via the --database option)
-    -- php artisan db:show --counts --views (If you would like to include table row counts and database view details within the output of the command, you may provide the --counts and --views options, respectively)
-    -- php artisan db:table users (To view the table definition for a given table, you may use the db:table command) 
-    -- php artisan db:monitor --databases=mysql,pgsql --max=100 (To monitor your database connections, you may use the db:monitor command)
-    -- php artisan migrate:install (To create the migration repository, you may use the migrate:install Artisan command)
-    -- php artisan make:migration create_flights_table (To create a new migration, use the make:migration Artisan command)
-    -- php artisan make:migration add_votes_to_users_table --table=users (To create a migration that modifies an existing table, use the --table option)
-    -- php artisan schema:dump (To dump your database schema, you may use the schema:dump Artisan command)
-    -- php artisan schema:dump --prune (To dump your database schema without comments, you may use the --prune option)
-    -- php artisan schema:dump --database=testing --prune (To dump your database schema without comments, you may use the --prune option)
-    -- php artisan migrate (To run all of your outstanding migrations, execute the migrate Artisan command)
-    -- php artisan migrate:status (To view the status of your migrations, you may use the migrate:status Artisan command)
-    -- php artisan migrate --pretend (To run the migrations without actually running them, you may use the --pretend option)
-    -- php artisan migrate --isolated (To run the migrations in isolation, you may use the --isolated option)
-    -- php artisan migrate --force (To run the migrations without a prompt, you may use the --force option)
-    -- php artisan migrate:rollback (To roll back the latest migration operation, you may use the migrate:rollback command)
-    -- php artisan migrate:rollback --step=5 (To roll back the last five migrations, you may use the --step option)
-    -- php artisan migrate:rollback --batch=3 (To roll back all of the migrations that were run within a given batch, you may use the --batch option)
-    -- php artisan migrate:rollback --pretend (To roll back the migrations without actually running them, you may use the --pretend option)
-    -- php artisan migrate:reset (To roll back all of your application's migrations, you may use the migrate:reset command)
-    -- php artisan migrate:refresh (To roll back all of your migrations and then execute the migrate command, you may use the migrate:refresh command)
-    -- php artisan migrate:refresh --seed (To roll back all of your migrations and then execute the migrate:refresh command, you may use the --seed option)
-    -- php artisan migrate:refresh --step=5 (To roll back all of your migrations and then execute the migrate command, you may use the migrate:refresh command)
-    -- php artisan migrate:fresh (To drop all tables and re-run all migrations, you may use the migrate:fresh command)
-    -- php artisan migrate:fresh --seed (To drop all tables and re-run all migrations, you may use the migrate:fresh command)
+**Run All Outstanding Migrations**:
+```bash
+php artisan migrate
+```
+
+**View a List of All Available Artisan Commands**:
+```bash
+php artisan db
+```
+
+**View a List of Available Artisan Commands for MySQL**:
+```bash
+php artisan db mysql
+```
+
+**View a List of All Database Connections Configured for the Application**:
+```bash
+php artisan db:show
+```
+
+**Inspect a Specific Database Connection (e.g., PostgreSQL)**:
+```bash
+php artisan db:show --database=pgsql
+```
+
+**Include Table Row Counts and View Details in the Output**:
+```bash
+php artisan db:show --counts --views
+```
+
+**View the Table Definition for a Given Table (e.g., users)**:
+```bash
+php artisan db:table users
+```
+
+**Monitor Database Connections (e.g., MySQL, PostgreSQL)**:
+```bash
+php artisan db:monitor --databases=mysql,pgsql --max=100
+```
+
+**Create the Migration Repository**:
+```bash
+php artisan migrate:install
+```
+
+**Create a New Migration (e.g., create_flights_table)**:
+```bash
+php artisan make:migration create_flights_table
+```
+
+**Create a Migration to Modify an Existing Table (e.g., add_votes_to_users_table)**:
+```bash
+php artisan make:migration add_votes_to_users_table --table=users
+```
+
+**Dump the Database Schema**:
+```bash
+php artisan schema:dump
+```
+
+**Dump the Database Schema Without Comments**:
+```bash
+php artisan schema:dump --prune
+```
+
+**Dump the Database Schema Without Comments for a Specific Database (e.g., testing)**:
+```bash
+php artisan schema:dump --database=testing --prune
+```
+
+**View the Status of Your Migrations**:
+```bash
+php artisan migrate:status
+```
+
+**Run Migrations Without Actually Running Them (Pretend Mode)**:
+```bash
+php artisan migrate --pretend
+```
+
+**Run Migrations in Isolation**:
+```bash
+php artisan migrate --isolated
+```
+
+**Run Migrations Without a Prompt (Force)**:
+```bash
+php artisan migrate --force
+```
+
+**Rollback the Latest Migration Operation**:
+```bash
+php artisan migrate:rollback
+```
+
+**Rollback the Last Five Migrations**:
+```bash
+php artisan migrate:rollback --step=5
+```
+
+**Rollback Migrations by a Specific Batch (e.g., batch 3)**:
+```bash
+php artisan migrate:rollback --batch=3
+```
+
+**Rollback Migrations Without Actually Running Them (Pretend Mode)**:
+```bash
+php artisan migrate:rollback --pretend
+```
+
+**Rollback All Migrations**:
+```bash
+php artisan migrate:reset
+```
+
+**Rollback All Migrations and Then Execute the Migrate Command**:
+```bash
+php artisan migrate:refresh
+```
+
+**Rollback All Migrations and Execute the Migrate Command with Seeding**:
+```bash
+php artisan migrate:refresh --seed
+```
+
+**Rollback All Migrations and Execute the Migrate Command with a Step Option**:
+```bash
+php artisan migrate:refresh --step=5
+```
+
+**Drop All Tables and Re-run All Migrations**:
+```bash
+php artisan migrate:fresh
+```
+
+**Drop All Tables and Re-run All Migrations with Seeding**:
+```bash
+php artisan migrate:fresh --seed
+```
 
 ### Seeder
-    -- php artisan make:seeder UserSeeder (To create a new seeder, use the make:seeder Artisan command)
-    -- php artisan db:seed (To seed your database, you may use the db:seed Artisan command)
-    -- php artisan db:seed --class=UserSeeder (To seed a specific seeder class, you may use the --class option)
-    -- php artisan migrate:fresh --seed (To drop all tables and re-run all of your migrations and seeds, you may use the migrate:fresh command)
-    -- php artisan migrate:fresh --seed --seeder=UsersTableSeeder (To drop all tables and re-run all of your migrations and seeds, you may use the migrate:fresh command)
-    -- php artisan db:seed --force (To seed your database without a prompt, you may use the --force option)
+**Create a New Seeder**:
+```bash
+php artisan make:seeder UserSeeder
+```
+
+**Seed the Database**:
+```bash
+php artisan db:seed
+```
+
+**Seed a Specific Seeder Class (e.g., UserSeeder)**:
+```bash
+php artisan db:seed --class=UserSeeder
+```
+
+**Drop All Tables and Re-run All Migrations and Seeds**:
+```bash
+php artisan migrate:fresh --seed
+```
+
+**Drop All Tables and Re-run All Migrations and Specific Seeder (e.g., UsersTableSeeder)**:
+```bash
+php artisan migrate:fresh --seed --seeder=UsersTableSeeder
+```
+
+**Seed the Database Without a Prompt**:
+```bash
+php artisan db:seed --force
+```
 
 ### Redis
-    -- composer require predis/predis (To get started, install the predis/predis Composer package)
-    -- php artisan redis:command (To view a list of all available Artisan commands, you may use the list command)
-    -- php artisan redis:command --scan (To view a list of all available Artisan commands, you may use the list command)
+**Install the Predis Composer Package**:
+```bash
+composer require predis/predis
+```
+
+**View a List of All Available Artisan Redis Commands**:
+```bash
+php artisan redis:command
+```
+
+**Scan for Redis Commands**:
+```bash
+php artisan redis:command --scan
+```
 
 ### Eloquent ORM
-    -- php artisan make:model Flight (To create a new model, use the make:model Artisan command)
-    -- php artisan make:model Flight --migration (To create a new model and its migration, use the --migration or -m option)
-    -- php artisan model:show Flight (To view a list of all available Artisan commands, you may use the list command)
+**Create a New Model**:
+```bash
+php artisan make:model Flight
+```
 
-## Generate a model and a FlightFactory class...
-    -- php artisan make:model Flight --factory (To create a new model and its factory, use the --factory)
-    -- php artisan make:model Flight -f (To create a new model and its factory, use the -f option)
- 
-## Generate a model and a FlightSeeder class...
-    -- php artisan make:model Flight --seed (To create a new model and its seeder, use the --seed option)
-    -- php artisan make:model Flight -s (To create a new model and its seeder, use the -s option)
-    
-## Generate a model and a FlightController class...
-    -- php artisan make:model Flight --controller (To create a new model and its controller, use the --controller option)
-    -- php artisan make:model Flight -c (To create a new model and its controller, use the -c option)
-    
-## Generate a model, FlightController resource class, and form request classes...
-    -- php artisan make:model Flight --controller --resource --requests (To create a new model and its controller, resource, requests use the --controller --resource --requests option)
-    -- php artisan make:model Flight -crR (To create a new model and its controller, resource, requests use the -c option)
-    
-## Generate a model and a FlightPolicy class...
-    -- php artisan make:model Flight --policy (To create a new model and its policy, use the --policy or -p option)
-    
-## Generate a model and a migration, factory, seeder, and controller...
-    -- php artisan make:model Flight -mfsc (To create a new model and its migration, factory, seeder, and controller, use the --migration, --factory, --seeder, and --controller options)
-    
-## Shortcut to generate a model, migration, factory, seeder, policy, controller, and form requests...
-    -- php artisan make:model Flight --all (To create a new model and its migration, factory, seeder, policy, controller, and form requests, use the --all option)
-    
-## Generate a pivot model...
-    -- php artisan make:model Member --pivot (To create a new pivot model, use the --pivot option)
-    -- php artisan make:model Member -p (To create a new pivot model, use the -p option)
+**Create a New Model and Its Migration**:
+```bash
+php artisan make:model Flight --migration
+```
 
-    -- php artisan model:prune --pretend (To delete all of the models that don't have a corresponding database table, you may use the model:prune command)
+**View a List of All Available Artisan Model Commands**:
+```bash
+php artisan model:show Flight
+```
+
+### Generate a model and a FlightFactory class...
+**Create a New Model and Its Factory**:
+
+```bash
+php artisan make:model Flight --factory
+```
+
+**Create a New Model and Its Factory (Using Short Option)**:
+
+```bash
+php artisan make:model Flight -f
+```
+
+### Generate a model and a FlightSeeder class...
+**Create a New Model and Its Seeder**:
+
+```bash
+php artisan make:model Flight --seed
+```
+
+**Create a New Model and Its Seeder (Using Short Option)**:
+
+```bash
+php artisan make:model Flight -s
+```
+
+### Generate a model and a FlightController class...
+**Create a New Model and Its Controller**:
+
+```bash
+php artisan make:model Flight --controller
+```
+
+**Create a New Model and Its Controller (Using Short Option)**:
+
+```bash
+php artisan make:model Flight -c
+```
+
+### Generate a model, FlightController resource class, and form request classes...
+**Create a New Model, Its Controller, Resource, and Requests**:
+
+```bash
+php artisan make:model Flight --controller --resource --requests
+```
+
+**Create a New Model, Its Controller, Resource, and Requests (Using Short Option)**:
+
+```bash
+php artisan make:model Flight -crR
+```
+
+### Generate a model and a FlightPolicy class...
+**Create a New Model and Its Policy**:
+
+```bash
+php artisan make:model Flight --policy
+```
+
+**Create a New Model and Its Policy (Using Short Option)**:
+
+```bash
+php artisan make:model Flight -p
+```
+
+### Generate a model and a migration, factory, seeder, and controller...
+**Create a New Model and Its Migration, Factory, Seeder, and Controller**:
+
+```bash
+php artisan make:model Flight -mfsc
+```
+
+This command combines multiple options to create the model with the following associated components:
+
+- Migration (`-m`)
+- Factory (`-f`)
+- Seeder (`-s`)
+- Controller (`-c`)
+
+
+### Shortcut to generate a model, migration, factory, seeder, policy, controller, and form requests...
+**Create a New Model and Its Migration, Factory, Seeder, Policy, Controller, and Form Requests**:
+
+```bash
+php artisan make:model Flight --all
+```
+
+### Generate a pivot model...
+**Create a New Pivot Model**:
+
+```bash
+php artisan make:model Member --pivot
+```
+
+**Create a New Pivot Model (Using Short Option)**:
+
+```bash
+php artisan make:model Member -p
+```
+
+---
+
+**Prune Models Without Corresponding Database Tables**:
+
+```bash
+php artisan model:prune --pretend
+```
 
 ### Scopes
-    -- php artisan make:scope AncientScope (To create a new scope, use the make:scope Artisan command)
-    -- php artisan make:scope AncientScope --model=Flight (To create a new scope for a model, use the --model option)
+**Create a New Scope**:
+
+```bash
+php artisan make:scope AncientScope
+```
+
+**Create a New Scope for a Specific Model**:
+
+```bash
+php artisan make:scope AncientScope --model=Flight
+```
 
 ### Observers
-    -- php artisan make:observer UserObserver --model=User
+**Create a New Observer**:
+
+```bash
+php artisan make:observer UserObserver --model=User
+```
 
 ### Casts
-    -- php artisan make:cast Json (To create a new cast, use the make:cast Artisan command)
-    -- php artisan make:cast Hash --inbound (To create a new cast that is only applied when setting a value on the model, use the --inbound option)
+**Create a New Cast**:
+
+```bash
+php artisan make:cast Json
+```
+
+**Create a New Inbound Cast** (Applied when setting a value on the model):
+
+```bash
+php artisan make:cast Hash --inbound
+```
 
 ### Resources
-    -- php artisan make:resource UserResource (To create a new resource, use the make:resource Artisan command)
-    -- php artisan make:resource User --collection (To create a new resource collection, use the --collection option)
-    -- php artisan make:resource UserCollection (To create a new resource collection, use the make:resource Artisan command)
+**Create a New Resource**:
+
+```bash
+php artisan make:resource UserResource
+```
+
+**Create a New Resource Collection** (Using the `--collection` option):
+
+```bash
+php artisan make:resource User --collection
+```
+
+**Create a New Resource Collection**:
+
+```bash
+php artisan make:resource UserCollection
+```
 
 ### Factories
-    -- php artisan make:factory FlightFactory (To create a new factory, use the make:factory Artisan command)
+**Create a New Factory**:
+
+```bash
+php artisan make:factory FlightFactory
+```
 
 ### Testing
-    -- php artisan make:test UserTest (To create a new test, use the make:test Artisan command)
-    -- php artisan make:test UserTest --unit (To create a new unit test, use the --unit option)
-    -- php artisan make:test UserTest --pest (To create a new Pest test, use the --pest option)
-    -- php artisan make:test UserTest --unit --pest (To create a new unit test, use the --unit option)
-    -- php artisan test (To run your application's tests, you may use the test Artisan command)
-    -- php artisan test --testsuite=Feature --stop-on-failure (To run a specific test suite, you may use the --testsuite option  and --stop-on-failure)
-    -- php artisan test --coverage (To generate a code coverage report, you may use the --coverage option)
-    -- php artisan test --coverage --min=80.3 (To generate a code coverage report, you may use the --coverage option)
-    -- php artisan test --profile (To generate a performance profile, you may use the --profile option)
+**Create a New Test**:
+```bash
+php artisan make:test UserTest
+```
+
+**Create a New Unit Test**:
+```bash
+php artisan make:test UserTest --unit
+```
+
+**Create a New Pest Test**:
+```bash
+php artisan make:test UserTest --pest
+```
+
+**Create a New Unit Test with Pest**:
+```bash
+php artisan make:test UserTest --unit --pest
+```
+
+**Run Tests**:
+```bash
+php artisan test
+```
+
+**Run a Specific Test Suite and Stop on Failure**:
+```bash
+php artisan test --testsuite=Feature --stop-on-failure
+```
+
+**Generate a Code Coverage Report**:
+```bash
+php artisan test --coverage
+```
+
+**Generate a Code Coverage Report with Minimum Coverage**:
+```bash
+php artisan test --coverage --min=80.3
+```
+
+**Generate a Performance Profile**:
+```bash
+php artisan test --profile
+```
+
+### NPM
+**Install All of the Project's Dependencies**:
+```bash
+npm install
+```
+
+**Compile Your Assets for Development**:
+```bash
+npm run dev
+```
+
+**Compile Your Assets for Production**:
+```bash
+npm run build
+```
